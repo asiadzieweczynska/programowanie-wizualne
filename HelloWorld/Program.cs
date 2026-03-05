@@ -2,3 +2,4 @@
 Console.WriteLine("Hello, World!");
 Console.WriteLine("Wersja 2");
 Console.WriteLine("bla bla bla bla");
+Console.WriteLine("tralalala");
