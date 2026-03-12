@@ -39,7 +39,12 @@ namespace Projekt1
             if (GetNumbers(out int a, out int b))
                 textBox3.Text = calc.Subtract(a, b).ToString();
         }
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             if (GetNumbers(out int a, out int b))
