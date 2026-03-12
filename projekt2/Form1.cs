@@ -2,11 +2,12 @@ namespace projekt2
 {
     public partial class Form1 : Form
     {
+        private Form2 _form2;
 
-
-        public Form1()
+        public Form1(Form2 form2)
         {
             InitializeComponent();
+            _form2 = form2;
         }
 
 
@@ -17,8 +18,8 @@ namespace projekt2
 
         private void zamknijOkno(object sender, EventArgs e)
         {
-            Form2 secondForm = new Form2();
-            secondForm.Show();
+            _form2.Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,10 +27,9 @@ namespace projekt2
             if (listBox1.SelectedItem != null)
             {
                 string selectedValue = listBox1.SelectedItem.ToString();
-                Form2 secondForm = new Form2();
-                secondForm.AddItemToListView(selectedValue);
-                secondForm.Show();
+                _form2.AddItemToListView(selectedValue);
             }
+            _form2.Show();
             this.Close();
         }
 

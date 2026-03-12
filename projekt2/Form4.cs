@@ -29,8 +29,20 @@ namespace projekt2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+        }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+            else
+            {
+                base.OnFormClosing(e);
+            }
         }
 
        
