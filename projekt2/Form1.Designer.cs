@@ -69,6 +69,7 @@
             listBox1.Items.AddRange(new object[] { "pizza", "makaron", "piwo", "burger", "tajskie", "indyjskie", "sos", "pepsi'", "sztućce" });
             listBox1.Location = new Point(126, 117);
             listBox1.Name = "listBox1";
+            listBox1.SelectionMode = SelectionMode.MultiExtended;
             listBox1.Size = new Size(187, 184);
             listBox1.TabIndex = 4;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
