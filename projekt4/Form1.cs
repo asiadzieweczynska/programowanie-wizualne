@@ -44,6 +44,63 @@ namespace projekt4
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image is null)
+            {
+                MessageBox.Show(this, "Najpierw wczytaj obraz (Load).", "Brak obrazu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                using var source = new Bitmap(pictureBox2.Image);
+                var result = new Bitmap(source.Width, source.Height);
+
+                for (int y = 0; y < source.Height; y++)
+                {
+                    for (int x = 0; x < source.Width; x++)
+                    {
+                        var c = source.GetPixel(x, y);
+                        var inverted = Color.FromArgb(c.A, 255 - c.R, 255 - c.G, 255 - c.B);
+                        result.SetPixel(x, y, inverted);
+                    }
+                }
+
+                var oldImage = pictureBox2.Image;
+                pictureBox2.Image = result;
+                oldImage?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Nie udało się odwrócić kolorów.\n\n{ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image is null)
+            {
+                MessageBox.Show(this, "Najpierw wczytaj obraz (Load).", "Brak obrazu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                using var source = new Bitmap(pictureBox2.Image);
+                source.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+                var flipped = new Bitmap(source);
+                var oldImage = pictureBox2.Image;
+                pictureBox2.Image = flipped;
+                oldImage?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Nie udało się odwrócić obrazu.\n\n{ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             using var dialog = new OpenFileDialog
