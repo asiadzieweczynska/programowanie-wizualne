@@ -75,5 +75,42 @@ namespace projekt4
                 MessageBox.Show(this, $"Nie udało się wczytać obrazu.\n\n{ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image is null)
+            {
+                MessageBox.Show(this, "Najpierw wczytaj obraz (Load).", "Brak obrazu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                using var source = new Bitmap(pictureBox2.Image);
+                var result = new Bitmap(source.Width, source.Height);
+
+                // Proste kryterium: piksel jest "zielony", jeśli kanał G jest wyraźnie większy od R i B.
+                const int minGreen = 60;
+                const int dominance = 25;
+
+                for (int y = 0; y < source.Height; y++)
+                {
+                    for (int x = 0; x < source.Width; x++)
+                    {
+                        var c = source.GetPixel(x, y);
+                        bool isGreen = c.G >= minGreen && c.G >= c.R + dominance && c.G >= c.B + dominance;
+                        result.SetPixel(x, y, isGreen ? c : Color.Black);
+                    }
+                }
+
+                var oldImage = pictureBox2.Image;
+                pictureBox2.Image = result;
+                oldImage?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Nie udało się przetworzyć obrazu.\n\n{ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
