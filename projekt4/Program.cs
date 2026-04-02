@@ -1,4 +1,4 @@
-namespace projekt3
+namespace projekt4
 {
     internal static class Program
     {
