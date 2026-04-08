@@ -1,12 +1,14 @@
 using System.Data;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
+using System.Text.Json;
+using System.IO;
 
 namespace projekt3
 {
     public partial class Form1 : Form
     {
-        private DataTable dataTable;
+        private DataTable dataTable = null!;
         private BindingSource bindingSource = new BindingSource();
         private int nextId = 1;
         public Form1()
@@ -19,7 +21,7 @@ namespace projekt3
         {
             dataTable = new DataTable();
             dataTable.Columns.Add("ID", typeof(int));
-            dataTable.Columns.Add("Imiê", typeof(string));
+            dataTable.Columns.Add("Imie", typeof(string));
             dataTable.Columns.Add("Nazwisko", typeof(string));
             dataTable.Columns.Add("Wiek", typeof(int));
             dataTable.Columns.Add("Stanowisko", typeof(string));
@@ -34,11 +36,11 @@ namespace projekt3
             if (dataGridView1.CurrentRow != null)
             {
                 dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-                MessageBox.Show("Pracownik zosta³ usuniêty.");
+                MessageBox.Show("Pracownik zostaï¿½ usuniï¿½ty.");
             }
             else
             {
-                MessageBox.Show("Najpierw zaznacz wiersz do usuniêcia!");
+                MessageBox.Show("Najpierw zaznacz wiersz do usuniï¿½cia!");
             }
         }
 
@@ -46,29 +48,29 @@ namespace projekt3
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Pliki CSV (*.csv)|*.csv";
-            saveFileDialog.Title = "Zapisz listê pracowników";
+            saveFileDialog.Title = "Zapisz listï¿½ pracownikï¿½w";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    // Tworzymy nag³ówek (pierwsza linia w pliku)
-                    string csvContent = "ID,Imiê,Nazwisko,Wiek,Stanowisko" + Environment.NewLine;
+                    // Tworzymy nagï¿½ï¿½wek (pierwsza linia w pliku)
+                    string csvContent = "ID,Imie,Nazwisko,Wiek,Stanowisko" + Environment.NewLine;
 
-                    // Pêtla przez wszystkie wiersze w naszej tabeli danych
+                    // Pï¿½tla przez wszystkie wiersze w naszej tabeli danych
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        // £¹czymy elementy wiersza przecinkami
+                        // ï¿½ï¿½czymy elementy wiersza przecinkami
                         csvContent += string.Join(",", row.ItemArray) + Environment.NewLine;
                     }
 
                     // Zapisujemy wszystko do wybranego pliku
                     File.WriteAllText(saveFileDialog.FileName, csvContent);
-                    MessageBox.Show("Dane zosta³y zapisane do pliku .csv");
+                    MessageBox.Show("Dane zostaï¿½y zapisane do pliku .csv");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Wyst¹pi³ b³¹d podczas zapisu: " + ex.Message);
+                    MessageBox.Show("Wystï¿½piï¿½ bï¿½ï¿½d podczas zapisu: " + ex.Message);
                 }
             }
         }
@@ -77,10 +79,10 @@ namespace projekt3
         {
             using (Form2 oknoDodawania = new Form2())
             {
-                // Jeœli u¿ytkownik klikn¹³ "Zapisz" (DialogResult.OK)
+                // Jeï¿½li uï¿½ytkownik kliknï¿½ï¿½ "Zapisz" (DialogResult.OK)
                 if (oknoDodawania.ShowDialog() == DialogResult.OK)
                 {
-                    // Dodajemy dane z okna do naszej g³ównej tabeli
+                    // Dodajemy dane z okna do naszej gï¿½ï¿½wnej tabeli
                     dataTable.Rows.Add(
                         nextId++,
                         oknoDodawania.Imie,
@@ -115,12 +117,103 @@ namespace projekt3
                             if (idZPliku >= nextId) nextId = idZPliku + 1;
                         }
                     }
-                    MessageBox.Show("Dane zosta³y wczytane!");
+                    MessageBox.Show("Dane zostaï¿½y wczytane!");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("B³¹d podczas odczytu: " + ex.Message);
+                    MessageBox.Show("Bï¿½ï¿½d podczas odczytu: " + ex.Message);
                 }
+            }
+        }
+
+        private static string GetString(DataRow row, params string[] columnNames)
+        {
+            foreach (string columnName in columnNames)
+            {
+                if (row.Table.Columns.Contains(columnName))
+                {
+                    return row[columnName]?.ToString() ?? string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        private static int GetInt(DataRow row, params string[] columnNames)
+        {
+            foreach (string columnName in columnNames)
+            {
+                if (!row.Table.Columns.Contains(columnName))
+                {
+                    continue;
+                }
+
+                object? value = row[columnName];
+                if (value is int intValue)
+                {
+                    return intValue;
+                }
+
+                if (value is null)
+                {
+                    return 0;
+                }
+
+                if (int.TryParse(value.ToString(), out int parsed))
+                {
+                    return parsed;
+                }
+            }
+
+            return 0;
+        }
+
+        private List<Osoba> GetOsobyFromDataTable()
+        {
+            var osoby = new List<Osoba>(dataTable.Rows.Count);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row.RowState == DataRowState.Deleted)
+                {
+                    continue;
+                }
+
+                osoby.Add(new Osoba
+                {
+                    ID = GetInt(row, "ID"),
+                    Imie = GetString(row, "Imie"),
+                    Nazwisko = GetString(row, "Nazwisko"),
+                    Wiek = GetInt(row, "Wiek"),
+                    Stanowisko = GetString(row, "Stanowisko"),
+                });
+            }
+
+            return osoby;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Pliki JSON (*.json)|*.json";
+            sfd.Title = "Zapisz listÄ™ pracownikÃ³w (JSON)";
+
+            if (sfd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            try
+            {
+                List<Osoba> osoby = GetOsobyFromDataTable();
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(osoby, options);
+                File.WriteAllText(sfd.FileName, json);
+                MessageBox.Show("Dane zostaÅ‚y zapisane do pliku JSON.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("WystÄ…piÅ‚ bÅ‚Ä…d podczas zapisu JSON: " + ex.Message);
             }
         }
     }
