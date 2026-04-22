@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="projekt7.MainWindow"
+        Title="projekt7">
+    <Grid Margin="16" RowDefinitions="Auto,Auto,Auto,Auto,*">
+        <TextBlock Grid.Row="0"
+                   Text="Wprowadź sekwencję DNA (A/C/G/T). Program policzy wystąpienia wszystkich podciągów długości 4 (4-mery)."
+                   TextWrapping="Wrap" />
+
+        <TextBox x:Name="InputTextBox"
+                 Grid.Row="1"
+                 Margin="0,8,0,0"
+                 PlaceholderText="Np. ACGTACGTACGT"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" />
+
+        <Button Grid.Row="2" Margin="0,8,0,0" Content="Zlicz 4-mery" Click="OnCountClick" />
+
+        <TextBlock x:Name="StatusTextBlock"
+                   Grid.Row="3"
+                   Margin="0,8,0,0"
+                   TextWrapping="Wrap" />
+
+        <Border Grid.Row="4" Margin="0,8,0,0">
+            <ListBox x:Name="ResultsListBox" />
+        </Border>
+    </Grid>
+</Window>
