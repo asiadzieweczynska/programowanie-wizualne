@@ -428,11 +428,16 @@ namespace projekt6
                 }
             }
 
-            MessageBox.Show(
-                reason,
+            var result = MessageBox.Show(
+                $"{reason}\n\nCzy chcesz wrócić do menu?",
                 win ? "Wygrana" : "Porażka",
-                MessageBoxButtons.OK,
+                MessageBoxButtons.YesNo,
                 win ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
