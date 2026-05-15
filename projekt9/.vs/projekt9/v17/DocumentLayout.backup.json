@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|c:\\users\\joey\\desktop\\programowanie wizualne\\projekt9\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|c:\\users\\joey\\desktop\\programowanie wizualne\\projekt9\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|c:\\users\\joey\\desktop\\programowanie wizualne\\projekt9\\form1.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:form1.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|c:\\users\\joey\\desktop\\programowanie wizualne\\projekt9\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|c:\\users\\joey\\desktop\\programowanie wizualne\\projekt9\\formschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:formschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C56D2EE8-9F57-4866-98DA-C643276F7F14}|projekt9.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormSchema.cs",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\FormSchema.cs",
+              "RelativeDocumentMoniker": "FormSchema.cs",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\FormSchema.cs",
+              "RelativeToolTip": "FormSchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T12:35:58.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "DatabaseManager.cs",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\DatabaseManager.cs",
+              "RelativeToolTip": "DatabaseManager.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAowIsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T12:35:49.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.resx",
+              "RelativeDocumentMoniker": "Form1.resx",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.resx",
+              "RelativeToolTip": "Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-15T12:35:43.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T12:35:38.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwFcAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T06:45:28.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Joey\\Desktop\\programowanie wizualne\\projekt9\\Form1.cs [Projekt]",
+              "RelativeToolTip": "Form1.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T06:39:03.292Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
