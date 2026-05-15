@@ -17,6 +17,10 @@
 wnioski.db
 **/wnioski.db
 
+# Exclude other course projects from this branch view
+projekt6/
+projekt9/
+
 # OS files
 .DS_Store
 Thumbs.db
